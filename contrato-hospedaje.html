@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contrato de Hospedaje Temporal</title>
+  <style>
+    /* --- Estilos para Pantalla y Móviles --- */
+    * {
+      box-sizing: border-box;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 12px;
+    }
+
+    body {
+      margin: 0;
+      padding: 2.5rem;
+      background: #fff;
+      color: #000;
+    }
+
+    .contract-box {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: justify;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 1.3rem;
+      margin: 0 0 2.5rem 0;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      font-size: 1.15rem;
+      margin: 2rem 0 1rem 0;
+      text-transform: uppercase;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 4px;
+    }
+
+    h3 {
+      font-size: 1rem;
+      margin: 1.5rem 0 0.5rem 0;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    p {
+      line-height: 1.75rem;
+      margin: 0 0 1.75rem 0;
+    }
+
+    ul {
+      margin: 0 0 2rem 2rem;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 1rem;
+      line-height: 1.5rem;
+    }
+
+    /* --- Campos Editables Táctiles --- */
+    input.inline-input {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 1rem;
+      font-weight: bold;
+      border: none;
+      border-bottom: 1px dashed #666;
+      background: #ddd;
+      padding: 0 5px;
+      margin: 2px 5px;
+      min-width: 40px;
+    }
+
+    /* Modificadores de ancho específicos */
+    .input-xs {
+      width: 35px;
+      text-align: center;
+    }
+
+    .input-sm {
+      width: 100px;
+    }
+
+    .input-md {
+      width: 220px;
+    }
+
+    .input-full {
+      width: 98%;
+      display: inline-block;
+      margin-top: 2px;
+    }
+
+    /* Bloque de Firmas */
+    .signature-container {
+      margin-top: 30px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .signature-block {
+      width: 45%;
+      text-align: center;
+      font-size: 9pt;
+    }
+
+    .signature-line {
+      border-top: 1px solid #000;
+      margin-top: 40px;
+      margin-bottom: 4px;
+    }
+
+    /* Botón Flotante para Celular */
+    .print-float-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #000;
+      color: #fff;
+      border: none;
+      padding: 12px 24px;
+      font-size: 14px;
+      font-weight: bold;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      z-index: 999;
+    }
+
+    @media print {
+      .print-float-btn {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <button class="print-float-btn" onclick="window.print()">Imprimir Contrato</button>
+
+  <main class="contract-box">
+    <h1>CONTRATO DE HOSPEDAJE TEMPORAL</h1>
+
+    <p>A los <input type="number" class="inline-input input-xs" value="26"> días del mes de <input type="text"
+        class="inline-input input-sm" value="Febrero"> del año <input type="number" class="inline-input input-sm"
+        value="2026">, se celebra el presente contrato de hospedaje temporal, de conformidad con las disposiciones y
+      demás normas aplicables, entre las siguientes partes:</p>
+
+    <h2>PARTES CONTRATANTES</h2>
+    <p><strong>DE LA PRIMERA PARTE:</strong> Nombre: Joel Steve Salazar Ike, de nacionalidad Peruano, identificado(a)
+      con Documento de Identidad N° 46724985, con domicilio en Urbanización Juan Pablo Vizcardo y Guzmán -
+      Etapa 1 - Manzana G - Lote 16 - Distrito Jose Luis Bustamante y Rivero, Arequipa, Arequipa, Peru 04009, con correo
+      electrónico joelsalazarnet@gmail.com y teléfono +1 608 432 5490, a quien en adelante se le denominará "EL
+      ARRENDADOR".</p>
+    <p><strong>DE LA SEGUNDA PARTE:</strong> Nombre: <input type="text" class="inline-input input-md" id="g_name"
+        value="Alessandra Yarahuaman Dueñas">, de nacionalidad <input type="text" class="inline-input input-sm" id="g_nat" 
+        value="Peruana">, identificado(a) con Documento de Identidad Nro <input type="text"
+        class="inline-input input-sm" id="g_dni" value="74890598">, con domicilio en <input type="text"
+        class="inline-input input-full" value="Calle Colombia R-27 Urb. Ucchullo Grande, Cusco, Cusco, Cusco">, con
+      correo electrónico <input type="email" class="inline-input input-md" id="g_email" value="alessandra@example.com">
+      y teléfono <input type="tel" class="inline-input input-sm" id="g_phone" value="987654321">, a quien en adelante se
+      le denominará "EL HUÉSPED".</p>
+
+    <p>Todas las partes, en pleno uso de sus facultades legales, convienen en celebrar el presente contrato bajo las
+      siguientes cláusulas:</p>
+
+    <h2>CLÁUSULAS</h2>
+
+    <h3>PRIMERA: DEL OBJETO DEL CONTRATO</h3>
+    <p>Por el presente documento, EL ARRENDADOR otorga en arrendamiento a EL HUÉSPED, quien acepta expresamente, una
+      (01) habitación amueblada con baño compartido, ubicada en la Urbanización Juan Pablo Vizcardo y Guzmán - Etapa 1 -
+      Manzana G - Lote 16 - Distrito Jose Luis Bustamante y Rivero, Arequipa, Arequipa 04009, por el plazo y bajo las
+      condiciones pactadas en las siguientes cláusulas.</p>
+
+    <h3>SEGUNDA: DEL PLAZO</h3>
+    <p>El presente contrato de arrendamiento se pacta por el plazo de <input type="text" class="inline-input input-sm"
+        value="cuatro (4)"> meses, contados a partir del día <input type="text" class="inline-input input-md"
+        value="26 Febrero del 2026"> hasta el día <input type="text" class="inline-input input-md"
+        value="26 de Junio del 2026">, fecha en la cual EL HUÉSPED se obliga a restituir el bien arrendado. Al
+      vencimiento del plazo inicial, EL ARRENDADOR podrá, a su sola discreción, ofrecer la renovación del contrato por
+      un período adicional, previa evaluación del cumplimiento de las obligaciones contractuales por parte de EL
+      HUÉSPED. Dicha renovación requerirá la suscripción de un nuevo contrato.</p>
+
+    <h3>TERCERA: DEL MERCED CONDUCTIVA Y FORMA DE PAGO</h3>
+    <p>EL HUÉSPED pagara por el servicio de hospedaje temporal la suma de <input type="text"
+        class="inline-input input-md" value="Quinientos Cincuenta"> (S/ <input type="text" class="inline-input input-sm"
+        value="550.00">) mensuales, monto que deberá ser cancelado el día <input type="number"
+        class="inline-input input-xs" value="26"> de cada mes, por mes adelantado. El pago de la renta se efectuará
+      mediante transferencia bancaria a la cuenta que EL ARRENDADOR proporcionará por escrito. En caso de retraso en el
+      pago de el alquiler por un período mayor a siete (7) días calendario contados desde la fecha de vencimiento, se
+      considerará como causal de resolución automática del contrato, quedando EL ARRENDADOR facultado para exigir la
+      restitución inmediata del bien arrendado, sin prejuicio de las acciones legales correspondientes. En este
+      supuesto, EL ARRENDADOR aplicará el depósito de garantía para cubrir: (i) el costo proporcional del alojamiento
+      correspondiente a los días de gracia otorgados, y (ii) cualquier gasto originado por daños o deterioros en la
+      propiedad.</p>
+
+    <h3>CUARTA: DE LA GARANTÍA</h3>
+    <p>Para garantizar el fiel cumplimiento de las obligaciones que emanan del presente contrato, EL HUÉSPED entrega a
+      EL ARRENDADOR la suma de <input type="text" class="inline-input input-sm" value="Quinientos"> (S/ <input
+        type="text" class="inline-input input-sm" value="500.00">) en calidad de depósito de garantía, monto que será
+      devuelto al término del contrato, previa deducción de los gastos que pudieran originarse por deterioros imputables
+      a EL HUÉSPED o sus invitados. Dicho depósito no devengará intereses y será aplicado preferentemente a cubrir los
+      daños que pudiera sufrir el bien arrendado por uso indebido o negligencia de EL HUÉSPED o cualquier persona que
+      este autorice a ingresar al inmueble, incluyendo invitados y visitantes. EL HUÉSPED asume plena responsabilidad
+      por los actos y omisiones de sus invitados, visitantes o cualquier tercero que ingrese al inmueble con su
+      autorización, siendo solidariamente responsable de los daños que estos pudieran ocasionar a la propiedad,
+      mobiliario, equipos o instalaciones. En caso de resolución del contrato por mora en el pago, conforme a lo
+      establecido en la cláusula tercera, EL ARRENDADOR podrá retener del depósito de garantía el importe proporcional
+      correspondiente a los días de gracia otorgados, así como los gastos por daños o deterioros en la propiedad,
+      devolviendo únicamente el saldo remanente, si lo hubiere.</p>
+
+    <h3>QUINTA: DEL USO Y DESTINO DEL BIEN ARRENDADO</h3>
+    <p>EL HUÉSPED se obliga a destinar el bien arrendado exclusivamente para uso habitacional, quedando expresamente
+      prohibido el uso comercial, industrial o cualquier otro distinto al pactado. Queda terminantemente prohibido el
+      subarriendo, la cesión de posición contractual, el traspaso o cualquier acto de disposición del bien arrendado sin
+      el consentimiento previo y por escrito de EL ARRENDADOR, bajo apercibimiento de resolución automática del
+      contrato. EL HUÉSPED se compromete a cumplir estrictamente las normas de convivencia y el reglamento interno que
+      EL ARRENDADOR le haga entrega, así como a mantener el orden y la tranquilidad en el inmueble.</p>
+
+    <h3>SEXTA: DE LAS NORMAS DE CONVIVENCIA Y REGLAMENTO INTERNO</h3>
+    <p>EL HUÉSPED se obliga a cumplir estrictamente las siguientes normas de convivencia, cuyo incumplimiento
+      constituirá causal de resolución automática del contrato:</p>
+    <ul>
+      <li>Se permite la recepción de visitas diurnas sin costo alguno en el horario comprendido de 9:00 a.m. a 9:00
+        p.m., con acceso a las áreas comunes de la propiedad, quedando expresamente prohibido el uso de los servicios de
+        cocina y lavandería por parte de las mismas.</li>
+      <li>Se autoriza la pernoctación de un máximo de una (1) persona en la habitación de EL HUÉSPED, previo registro obligatorio en
+        el libro de visitas y pago anticipado de 50 soles por cada noche de estancia mediante transferencia bancaria. El
+        uso de la totalidad de los servicios del inmueble (incluyendo cocina y lavandería) es permitido para las visitas
+        autorizadas, y un juego de llaves para el acceso a la propiedad puede ser solicitado.</li>
+      <li>Se exige la conservación de la ubicación, orden y disposición original del mobiliario entregado (cama,
+        escritorio, sillas, entre otros), siendo requerida la autorización previa y por escrito del arrendador para
+        cualquier modificación; asimismo, queda prohibida la realización de perforaciones o la adhesión de objetos que
+        puedan dañar la pintura.</li>
+      <li>Es prohibido el uso de calefactores, hervidores eléctricos o cualquier otro artefacto de alto consumo de
+        energía dentro de las habitaciones. De igual manera, es prohibido fumar en cualquier área interior del inmueble,
+        siendo habilitada únicamente la azotea para tal fin.</li>
+      <li>Se requiere el lavado y guardado inmediato de todos los utensilios y elementos de cocina utilizados. Asimismo,
+        es prohibido el desecho de aceite usado por los drenajes, debiendo ser vertido obligatoriamente en el contenedor
+        especial provisto.</li>
+      <li>Se solicita el retiro inmediato de las prendas de vestir de los cordeles y tendederos una vez que se
+        encuentren completamente secas.</li>
+      <li>Es prohibido el arrojo de toallas húmedas, pañuelos desechables o cualquier otro elemento obstructivo al
+        interior de los inodoros.</li>
+      <li>Se debe mantener los niveles de ruido al mínimo entre las 09:00 p.m. y las 09:00 a.m., con el fin de
+        salvaguardar el descanso y la tranquilidad de los demás huéspedes.</li>
+      <li>Es requerida la notificación inmediata a la administración en caso de extravío de las llaves para la gestión
+        de un duplicado, cuyo costo es descontado de la garantía.</li>
+    </ul>
+
+    <h3>SÉPTIMA: DE LOS SERVICIOS Y ÁREAS COMUNES</h3>
+    <p>EL ARRENDADOR concede a EL HUÉSPED el derecho de uso de las áreas comunes del inmueble, tales como cocina,
+      lavandería y terraza, debiendo hacer uso racional y cuidadoso de las mismas. EL HUÉSPED se compromete a mantener
+      estas áreas en el mismo estado de orden, limpieza y decoración en que las encontró, respetando la organización
+      establecida por EL ARRENDADOR. Los servicios básicos de agua, energía eléctrica, internet y gas domiciliario para
+      uso habitacional se encuentran incluidos en la merced conductiva mensual, comprometiéndose EL HUÉSPED a hacer uso
+      racional de los mismos.</p>
+
+    <h3>OCTAVA: DE LA RESOLUCIÓN ANTICIPADA</h3>
+    <p>EL HUÉSPED podrá resolver anticipadamente el presente contrato, debiendo comunicar su decisión a EL
+      ARRENDADOR mediante comunicación escrita con una anticipación no menor a quince (15) días
+      calendarios a la fecha en que pretenda hacer efectiva la resolución.</p>
+
+    <h3>NOVENA: DE LA RESTITUCIÓN DEL BIEN</h3>
+    <p>Al vencimiento del plazo contractual, EL HUÉSPED se obliga a restituir el bien arrendado en el mismo estado de
+      conservación en que lo recibió, salvo el deterioro propio del uso ordinario y el transcurso del tiempo. La
+      restitución deberá efectuarse en la fecha de vencimiento del contrato, sin necesidad de requerimiento alguno, bajo
+      apercibimiento de que EL HUÉSPED pague una penalidad equivalente al doble de la renta diaria por
+      cada día de retraso.</p>
+
+    <h3>DÉCIMA: DE LAS DISPOSICIONES GENERALES</h3>
+    <p>Cualquier modificación, adición o renuncia al presente contrato deberá constar por escrito y ser suscrita por
+      ambas partes contratantes. Las partes se someten expresamente a la competencia territorial de los Juzgados Civiles
+      para dirimir cualquier controversia que pudiera suscitarse en la interpretación o ejecución del presente contrato.
+    </p>
+
+    <h2>DE LA RENOVACIÓN CONTRACTUAL</h2>
+    <p>La posible renovación del presente contrato queda sujeta exclusivamente a la voluntad de EL ARRENDADOR, quien
+      evaluará el cumplimiento íntegro de las obligaciones contractuales, el estado de conservación del bien arrendado y
+      el respeto a las normas de convivencia. La renovación, de ser aprobada, se formalizará mediante la suscripción de
+      un nuevo contrato con idénticas condiciones al presente.</p>
+
+    <h2>CONFORMIDAD Y SUSCRIPCIÓN</h2>
+    <p>En señal de conformidad y para su fiel cumplimiento, las partes suscriben el presente contrato en el lugar y
+      fecha indicados en el encabezamiento.</p>
+
+    <div class="signature-container">
+      <div class="signature-block">
+        <div class="signature-line"></div>
+        <strong>EL ARRENDADOR</strong><br>
+        Joel Steve Salazar Ike<br>
+        DNI N° 46724985<br>
+      </div>
+      <div class="signature-block">
+        <div class="signature-line"></div>
+        <strong>EL HUÉSPED</strong><br>
+        <span id="v_f_name">Alessandra Yarahuaman Dueñas</span><br>
+        Nacionalidad: <span id="v_f_nat">Peruana</span><br>
+        DNI Nro <span id="v_f_dni">74890598</span><br>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const gNameInput = document.getElementById('g_name');
+    const gNatInput = document.getElementById('g_nat');
+    const gDniInput = document.getElementById('g_dni');
+    const gEmailInput = document.getElementById('g_email');
+    const gPhoneInput = document.getElementById('g_phone');
+
+    function syncSignatures() {
+      document.getElementById('v_f_name').textContent = gNameInput.value;
+      document.getElementById('v_f_nat').textContent = gNatInput.value;
+      document.getElementById('v_f_dni').textContent = gDniInput.value;
+    }
+
+    gNameInput.addEventListener('input', syncSignatures);
+    gNatInput.addEventListener('input', syncSignatures);
+    gDniInput.addEventListener('input', syncSignatures);
+    
+    // Ejecución inicial para sincronizar los placeholders por defecto
+    syncSignatures();
+  </script>
+</body>
+
+</html>
