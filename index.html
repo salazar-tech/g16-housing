@@ -10,7 +10,7 @@
     * {
       box-sizing: border-box;
       font-family: 'Times New Roman', Times, serif;
-      font-size: 12px;
+      font-size: 13px;
     }
 
     body {
@@ -35,7 +35,7 @@
 
     h2 {
       font-size: 1.15rem;
-      margin: 2rem 0 1rem 0;
+      margin: 4rem 0 1rem 0;
       text-transform: uppercase;
       border-bottom: 1px solid #ddd;
       padding-bottom: 4px;
@@ -43,7 +43,7 @@
 
     h3 {
       font-size: 1rem;
-      margin: 1.5rem 0 0.5rem 0;
+      margin: 2rem 0 0.5rem 0;
       text-transform: uppercase;
       font-weight: bold;
     }
@@ -74,6 +74,11 @@
       padding: 0 5px;
       margin: 2px 5px;
       min-width: 40px;
+    }
+
+    input.inline-input::placeholder {
+      color: #777;
+      opacity: 1;
     }
 
     /* Modificadores de ancho específicos */
@@ -117,9 +122,8 @@
 
     /* Botón Flotante para Celular */
     .print-float-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
+      display: block;
+      margin: 30px auto 0;
       background: #000;
       color: #fff;
       border: none;
@@ -142,14 +146,12 @@
 
 <body>
 
-  <button class="print-float-btn" onclick="window.print()">Imprimir Contrato</button>
-
   <main class="contract-box">
     <h1>CONTRATO DE HOSPEDAJE TEMPORAL</h1>
 
-    <p>A los <input type="number" class="inline-input input-xs" value="26"> días del mes de <input type="text"
-        class="inline-input input-sm" value="Febrero"> del año <input type="number" class="inline-input input-sm"
-        value="2026">, se celebra el presente contrato de hospedaje temporal, de conformidad con las disposiciones y
+    <p>A los <input type="number" class="inline-input input-xs" placeholder="15"> días del mes de <input type="text"
+      class="inline-input input-sm" placeholder="Marzo"> del año <input type="number" class="inline-input input-sm"
+      placeholder="2026">, se celebra el presente contrato de hospedaje temporal, de conformidad con las disposiciones y
       demás normas aplicables, entre las siguientes partes:</p>
 
     <h2>PARTES CONTRATANTES</h2>
@@ -159,12 +161,12 @@
       electrónico joelsalazarnet@gmail.com y teléfono +1 608 432 5490, a quien en adelante se le denominará "EL
       ARRENDADOR".</p>
     <p><strong>DE LA SEGUNDA PARTE:</strong> Nombre: <input type="text" class="inline-input input-md" id="g_name"
-        value="Alessandra Yarahuaman Dueñas">, de nacionalidad <input type="text" class="inline-input input-sm" id="g_nat" 
-        value="Peruana">, identificado(a) con Documento de Identidad Nro <input type="text"
-        class="inline-input input-sm" id="g_dni" value="74890598">, con domicilio en <input type="text"
-        class="inline-input input-full" value="Calle Colombia R-27 Urb. Ucchullo Grande, Cusco, Cusco, Cusco">, con
-      correo electrónico <input type="email" class="inline-input input-md" id="g_email" value="alessandra@example.com">
-      y teléfono <input type="tel" class="inline-input input-sm" id="g_phone" value="987654321">, a quien en adelante se
+        placeholder="Juan Perez">, de nacionalidad <input type="text" class="inline-input input-sm" id="g_nat"
+        placeholder="Peruana">, identificado(a) con Documento de Identidad Nro <input type="text"
+        class="inline-input input-sm" id="g_dni" placeholder="12345678">, con domicilio en <input type="text"
+        class="inline-input input-full" placeholder="Calle Ficticia 123, Lima, Lima, Peru">, con
+      correo electrónico <input type="email" class="inline-input input-md" id="g_email" placeholder="juan.perez@example.com">
+      y teléfono <input type="tel" class="inline-input input-sm" id="g_phone" placeholder="999 888 777">, a quien en adelante se
       le denominará "EL HUÉSPED".</p>
 
     <p>Todas las partes, en pleno uso de sus facultades legales, convienen en celebrar el presente contrato bajo las
@@ -179,19 +181,18 @@
       condiciones pactadas en las siguientes cláusulas.</p>
 
     <h3>SEGUNDA: DEL PLAZO</h3>
-    <p>El presente contrato de arrendamiento se pacta por el plazo de <input type="text" class="inline-input input-sm"
-        value="cuatro (4)"> meses, contados a partir del día <input type="text" class="inline-input input-md"
-        value="26 Febrero del 2026"> hasta el día <input type="text" class="inline-input input-md"
-        value="26 de Junio del 2026">, fecha en la cual EL HUÉSPED se obliga a restituir el bien arrendado. Al
+    <p>El presente contrato de arrendamiento se pacta por el plazo de cuatro (4) meses, contados a partir del día <input type="text" class="inline-input input-md"
+      placeholder="15 de Marzo del 2026"> hasta el día <input type="text" class="inline-input input-md"
+      placeholder="15 de Julio del 2026">, fecha en la cual EL HUÉSPED se obliga a restituir el bien arrendado. Al
       vencimiento del plazo inicial, EL ARRENDADOR podrá, a su sola discreción, ofrecer la renovación del contrato por
       un período adicional, previa evaluación del cumplimiento de las obligaciones contractuales por parte de EL
       HUÉSPED. Dicha renovación requerirá la suscripción de un nuevo contrato.</p>
 
     <h3>TERCERA: DEL MERCED CONDUCTIVA Y FORMA DE PAGO</h3>
     <p>EL HUÉSPED pagará por el servicio de hospedaje temporal la suma de <input type="text"
-        class="inline-input input-md" value="Quinientos Cincuenta"> (S/ <input type="text" class="inline-input input-sm"
-        value="550.00">) mensuales, monto que deberá ser cancelado el día <input type="number"
-        class="inline-input input-xs" value="26"> de cada mes, por mes adelantado. El pago de la renta se efectuará
+      class="inline-input input-md" placeholder="Quinientos Cincuenta"> (S/ <input type="text" class="inline-input input-sm"
+      placeholder="550.00">) mensuales, monto que deberá ser cancelado el día <input type="number"
+      class="inline-input input-xs" placeholder="15"> de cada mes, por mes adelantado. El pago de la renta se efectuará
       mediante transferencia bancaria a la cuenta que EL ARRENDADOR proporcionará por escrito. En caso de retraso en el
       pago del alquiler por un período mayor a siete (7) días calendario contados desde la fecha de vencimiento, se
       considerará como causal de resolución automática del contrato, quedando EL ARRENDADOR facultado para exigir la
@@ -202,8 +203,8 @@
 
     <h3>CUARTA: DE LA GARANTÍA</h3>
     <p>Para garantizar el fiel cumplimiento de las obligaciones que emanan del presente contrato, EL HUÉSPED entrega a
-      EL ARRENDADOR la suma de <input type="text" class="inline-input input-sm" value="Quinientos"> (S/ <input
-        type="text" class="inline-input input-sm" value="500.00">) en calidad de depósito de garantía, monto que será
+      EL ARRENDADOR la suma de <input type="text" class="inline-input input-sm" placeholder="Quinientos"> (S/ <input
+        type="text" class="inline-input input-sm" placeholder="500.00">) en calidad de depósito de garantía, monto que será
       devuelto al término del contrato, previa deducción de los gastos que pudieran originarse por deterioros imputables
       a EL HUÉSPED o sus invitados. Dicho depósito no devengará intereses y será aplicado preferentemente a cubrir los
       daños que pudiera sufrir el bien arrendado por uso indebido o negligencia de EL HUÉSPED o cualquier persona que
@@ -300,19 +301,24 @@
       <div class="signature-block">
         <div class="signature-line"></div>
         <strong>EL HUÉSPED</strong><br>
-        <span id="v_f_name">Alessandra Yarahuaman Dueñas</span><br>
-        Nacionalidad: <span id="v_f_nat">Peruana</span><br>
-        DNI Nro <span id="v_f_dni">74890598</span><br>
+        <span id="v_f_name"></span><br>
+        Nacionalidad: <span id="v_f_nat"></span><br>
+        DNI Nro <span id="v_f_dni"></span><br>
       </div>
     </div>
   </main>
 
+  <button class="print-float-btn" id="saveContractButton" type="button">Guardar Contrato</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
   <script>
+    const GOOGLE_APPS_SCRIPT_URL = 'PEGA_AQUI_LA_URL_DE_TU_APPS_SCRIPT';
     const gNameInput = document.getElementById('g_name');
     const gNatInput = document.getElementById('g_nat');
     const gDniInput = document.getElementById('g_dni');
     const gEmailInput = document.getElementById('g_email');
     const gPhoneInput = document.getElementById('g_phone');
+    const saveContractButton = document.getElementById('saveContractButton');
 
     function syncSignatures() {
       document.getElementById('v_f_name').textContent = gNameInput.value;
@@ -326,6 +332,51 @@
     
     // Ejecución inicial para sincronizar los placeholders por defecto
     syncSignatures();
+
+    async function saveContract() {
+      if (GOOGLE_APPS_SCRIPT_URL.startsWith('https://script.google.com/macros/s/AKfycbxcvQx38QC1H6X825azn2BoAwfe2r04sKbW600VrX_f4EXuqfMdGeYXvLj-tdW7yskJ/exec')) {
+        alert('Configura primero la URL de Google Apps Script en el código del contrato.');
+        return;
+      }
+
+      saveContractButton.disabled = true;
+      saveContractButton.textContent = 'Generando PDF...';
+
+      try {
+        const pdfDataUri = await html2pdf()
+          .set({
+            margin: 10,
+            filename: `Contrato-${gNameInput.value || 'huesped'}.pdf`,
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 2, useCORS: true },
+            jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+          })
+          .from(document.querySelector('.contract-box'))
+          .outputPdf('datauristring');
+
+        const payload = {
+          fileName: `Contrato-${gNameInput.value || 'huesped'}.pdf`,
+          pdfBase64: pdfDataUri.split(',')[1]
+        };
+
+        saveContractButton.textContent = 'Guardando...';
+        await fetch(GOOGLE_APPS_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          body: JSON.stringify(payload)
+        });
+
+        alert('Contrato enviado a Google Drive.');
+      } catch (error) {
+        console.error(error);
+        alert('No se pudo guardar el contrato. Revisa la configuración de Google Apps Script.');
+      } finally {
+        saveContractButton.disabled = false;
+        saveContractButton.textContent = 'Guardar Contrato';
+      }
+    }
+
+    saveContractButton.addEventListener('click', saveContract);
   </script>
 </body>
 
