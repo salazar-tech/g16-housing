@@ -69,16 +69,40 @@
       font-size: 1rem;
       font-weight: bold;
       border: none;
-      border-bottom: 1px dashed #666;
-      background: #ddd;
+      border-bottom: 2px solid #1a73e8;
+      background: #e8f0fe;
       padding: 0 5px;
       margin: 2px 5px;
       min-width: 40px;
+      color: #202124;
+      transition: background-color 150ms ease, border-color 150ms ease, box-shadow 150ms ease;
+    }
+
+    input.inline-input:hover {
+      background: #d2e3fc;
+    }
+
+    input.inline-input:focus-visible {
+      outline: 2px solid #1a73e8;
+      outline-offset: 2px;
+      box-shadow: 0 2px 0 #1a73e8;
     }
 
     input.inline-input::placeholder {
-      color: #777;
+      color: #5f6368;
       opacity: 1;
+    }
+
+    input.inline-input:disabled {
+      cursor: not-allowed;
+      opacity: 1;
+      border-bottom: 1px solid #9aa0a6;
+      background: #f1f3f4;
+      color: #5f6368;
+    }
+
+    input.inline-input:disabled::placeholder {
+      color: #5f6368;
     }
 
     /* Modificadores de ancho específicos */
@@ -149,22 +173,21 @@
   <main class="contract-box">
     <h1>CONTRATO DE HOSPEDAJE TEMPORAL</h1>
 
-    <p>A los <input type="number" class="inline-input input-xs" placeholder="15"> días del mes de <input type="text"
-      class="inline-input input-sm" placeholder="Marzo"> del año <input type="number" class="inline-input input-sm"
-      placeholder="2026">, se celebra el presente contrato de hospedaje temporal, de conformidad con las disposiciones y
+    <p>A los <input type="number" class="inline-input input-xs" id="contract_day" placeholder="15"> días del mes de <input type="text"
+      class="inline-input input-sm" id="contract_month" placeholder="Marzo"> del año <input type="number" class="inline-input input-sm"
+      id="contract_year" placeholder="2026">, se celebra el presente contrato de hospedaje temporal, de conformidad con las disposiciones y
       demás normas aplicables, entre las siguientes partes:</p>
 
     <h2>PARTES CONTRATANTES</h2>
-    <p><strong>DE LA PRIMERA PARTE:</strong> Nombre: Joel Steve Salazar Ike, de nacionalidad Peruana, identificado(a)
-      con Documento de Identidad N° 46724985, con domicilio en Urbanización Juan Pablo Vizcardo y Guzmán -
-      Etapa 1 - Manzana G - Lote 16 - Distrito José Luis Bustamante y Rivero, Arequipa, Arequipa, Perú 04009, con correo
-      electrónico joelsalazarnet@gmail.com y teléfono +1 608 432 5490, a quien en adelante se le denominará "EL
+    <p><strong>DE LA PRIMERA PARTE:</strong> Nombre: <input type="text" class="inline-input input-md" placeholder="Nombre del arrendador" disabled>, de nacionalidad <input type="text" class="inline-input input-sm" placeholder="Nacionalidad" disabled>, identificado(a)
+      con Documento de Identidad N° <input type="text" class="inline-input input-sm" placeholder="DNI del arrendador" disabled>, con domicilio en <input type="text" class="inline-input input-full" placeholder="Domicilio del arrendador" disabled>, con correo
+      electrónico <input type="email" class="inline-input input-md" placeholder="Correo del arrendador" disabled> y teléfono <input type="tel" class="inline-input input-sm" placeholder="Teléfono del arrendador" disabled>, a quien en adelante se le denominará "EL
       ARRENDADOR".</p>
     <p><strong>DE LA SEGUNDA PARTE:</strong> Nombre: <input type="text" class="inline-input input-md" id="g_name"
         placeholder="Juan Perez">, de nacionalidad <input type="text" class="inline-input input-sm" id="g_nat"
         placeholder="Peruana">, identificado(a) con Documento de Identidad Nro <input type="text"
         class="inline-input input-sm" id="g_dni" placeholder="12345678">, con domicilio en <input type="text"
-        class="inline-input input-full" placeholder="Calle Ficticia 123, Lima, Lima, Peru">, con
+        class="inline-input input-full" id="g_address" placeholder="Calle Ficticia 123, Lima, Lima, Peru">, con
       correo electrónico <input type="email" class="inline-input input-md" id="g_email" placeholder="juan.perez@example.com">
       y teléfono <input type="tel" class="inline-input input-sm" id="g_phone" placeholder="999 888 777">, a quien en adelante se
       le denominará "EL HUÉSPED".</p>
@@ -176,13 +199,13 @@
 
     <h3>PRIMERA: DEL OBJETO DEL CONTRATO</h3>
     <p>Por el presente documento, EL ARRENDADOR otorga en arrendamiento a EL HUÉSPED, quien acepta expresamente, una
-      (01) habitación amueblada con baño compartido, ubicada en la Urbanización Juan Pablo Vizcardo y Guzmán - Etapa 1 -
+      (01) habitación amueblada con baño compartido, ubicada en Urbanización Juan Pablo Vizcardo y Guzmán - Etapa 1 -
       Manzana G - Lote 16 - Distrito Jose Luis Bustamante y Rivero, Arequipa, Arequipa 04009, por el plazo y bajo las
       condiciones pactadas en las siguientes cláusulas.</p>
 
     <h3>SEGUNDA: DEL PLAZO</h3>
-    <p>El presente contrato de arrendamiento se pacta por el plazo de cuatro (4) meses, contados a partir del día <input type="text" class="inline-input input-md"
-      placeholder="15 de Marzo del 2026"> hasta el día <input type="text" class="inline-input input-md"
+    <p>El presente contrato de arrendamiento se pacta por el plazo de cuatro (4) meses, contados a partir del día <input type="text" class="inline-input input-md" id="contract_start_date"
+      placeholder="15 de Marzo del 2026"> hasta el día <input type="text" class="inline-input input-md" id="contract_end_date"
       placeholder="15 de Julio del 2026">, fecha en la cual EL HUÉSPED se obliga a restituir el bien arrendado. Al
       vencimiento del plazo inicial, EL ARRENDADOR podrá, a su sola discreción, ofrecer la renovación del contrato por
       un período adicional, previa evaluación del cumplimiento de las obligaciones contractuales por parte de EL
@@ -190,9 +213,9 @@
 
     <h3>TERCERA: DEL MERCED CONDUCTIVA Y FORMA DE PAGO</h3>
     <p>EL HUÉSPED pagará por el servicio de hospedaje temporal la suma de <input type="text"
-      class="inline-input input-md" placeholder="Quinientos Cincuenta"> (S/ <input type="text" class="inline-input input-sm"
+      class="inline-input input-md" id="rent_words" placeholder="Quinientos Cincuenta"> (S/ <input type="text" class="inline-input input-sm" id="rent_amount"
       placeholder="550.00">) mensuales, monto que deberá ser cancelado el día <input type="number"
-      class="inline-input input-xs" placeholder="15"> de cada mes, por mes adelantado. El pago de la renta se efectuará
+      class="inline-input input-xs" id="payment_day" placeholder="15"> de cada mes, por mes adelantado. El pago de la renta se efectuará
       mediante transferencia bancaria a la cuenta que EL ARRENDADOR proporcionará por escrito. En caso de retraso en el
       pago del alquiler por un período mayor a siete (7) días calendario contados desde la fecha de vencimiento, se
       considerará como causal de resolución automática del contrato, quedando EL ARRENDADOR facultado para exigir la
@@ -203,8 +226,8 @@
 
     <h3>CUARTA: DE LA GARANTÍA</h3>
     <p>Para garantizar el fiel cumplimiento de las obligaciones que emanan del presente contrato, EL HUÉSPED entrega a
-      EL ARRENDADOR la suma de <input type="text" class="inline-input input-sm" placeholder="Quinientos"> (S/ <input
-        type="text" class="inline-input input-sm" placeholder="500.00">) en calidad de depósito de garantía, monto que será
+      EL ARRENDADOR la suma de <input type="text" class="inline-input input-sm" id="deposit_words" placeholder="Quinientos Cincuenta"> (S/ <input
+        type="text" class="inline-input input-sm" id="deposit_amount" placeholder="550.00">) en calidad de depósito de garantía, monto que será
       devuelto al término del contrato, previa deducción de los gastos que pudieran originarse por deterioros imputables
       a EL HUÉSPED o sus invitados. Dicho depósito no devengará intereses y será aplicado preferentemente a cubrir los
       daños que pudiera sufrir el bien arrendado por uso indebido o negligencia de EL HUÉSPED o cualquier persona que
@@ -235,11 +258,15 @@
         el libro de visitas y pago anticipado de 50 soles por cada noche de estancia mediante transferencia bancaria. El
         uso de la totalidad de los servicios del inmueble (incluyendo cocina y lavandería) es permitido para las visitas
         autorizadas, y un juego de llaves para el acceso a la propiedad puede ser solicitado.</li>
+      <li>Queda prohibido el ingreso, permanencia o alojamiento en la propiedad de personas menores de dieciocho (18) años,
+        ya sean huéspedes, visitantes o cualquier tercero autorizado por EL HUÉSPED.</li>
+      <li>Queda prohibido el ingreso, permanencia o alojamiento de mascotas o animales de cualquier especie en la propiedad,
+        ya sean del huésped, de sus visitantes o de cualquier tercero autorizado por EL HUÉSPED.</li>
       <li>Se exige la conservación de la ubicación, orden y disposición original del mobiliario entregado (cama,
         escritorio, sillas, entre otros), siendo requerida la autorización previa y por escrito del arrendador para
         cualquier modificación; asimismo, queda prohibida la realización de perforaciones o la adhesión de objetos que
         puedan dañar la pintura.</li>
-      <li>Es prohibido el uso de calefactores, hervidores eléctricos o cualquier otro artefacto de alto consumo de
+      <li>Está prohibido el uso de calefactores, hervidores eléctricos o cualquier otro artefacto de alto consumo de
         energía dentro de las habitaciones. De igual manera, es prohibido fumar en cualquier área interior del inmueble,
         siendo habilitada únicamente la azotea para tal fin.</li>
       <li>Se requiere el lavado y guardado inmediato de todos los utensilios y elementos de cocina utilizados. Asimismo,
@@ -295,24 +322,18 @@
       <div class="signature-block">
         <div class="signature-line"></div>
         <strong>EL ARRENDADOR</strong><br>
-        Joel Steve Salazar Ike<br>
-        DNI N° 46724985<br>
       </div>
       <div class="signature-block">
         <div class="signature-line"></div>
         <strong>EL HUÉSPED</strong><br>
-        <span id="v_f_name"></span><br>
-        Nacionalidad: <span id="v_f_nat"></span><br>
-        DNI Nro <span id="v_f_dni"></span><br>
       </div>
     </div>
   </main>
 
-  <button class="print-float-btn" id="saveContractButton" type="button">Guardar Contrato</button>
+  <button class="print-float-btn" id="saveContractButton" type="button">Enviar Datos</button>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
   <script>
-    const GOOGLE_APPS_SCRIPT_URL = 'PEGA_AQUI_LA_URL_DE_TU_APPS_SCRIPT';
+    const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx4LM1MMwPxXx9G22w3Mn0vx8L4c9REW2YA-O8xxN9BnuPdKoicBRUQVTyutHf-BVSt/exec';
     const gNameInput = document.getElementById('g_name');
     const gNatInput = document.getElementById('g_nat');
     const gDniInput = document.getElementById('g_dni');
@@ -320,43 +341,58 @@
     const gPhoneInput = document.getElementById('g_phone');
     const saveContractButton = document.getElementById('saveContractButton');
 
-    function syncSignatures() {
-      document.getElementById('v_f_name').textContent = gNameInput.value;
-      document.getElementById('v_f_nat').textContent = gNatInput.value;
-      document.getElementById('v_f_dni').textContent = gDniInput.value;
+    function validateEditableFields() {
+      const editableFields = document.querySelectorAll('input.inline-input:not(:disabled)');
+      const incompleteFields = Array.from(editableFields).filter((field) => {
+        const value = field.value.trim();
+        return !value || !field.checkValidity();
+      });
+
+      if (incompleteFields.length > 0) {
+        incompleteFields[0].focus();
+        alert('Completa todos los campos antes de enviar los datos.');
+        return false;
+      }
+
+      return true;
     }
 
-    gNameInput.addEventListener('input', syncSignatures);
-    gNatInput.addEventListener('input', syncSignatures);
-    gDniInput.addEventListener('input', syncSignatures);
-    
-    // Ejecución inicial para sincronizar los placeholders por defecto
-    syncSignatures();
-
     async function saveContract() {
-      if (GOOGLE_APPS_SCRIPT_URL.startsWith('https://script.google.com/macros/s/AKfycbxcvQx38QC1H6X825azn2BoAwfe2r04sKbW600VrX_f4EXuqfMdGeYXvLj-tdW7yskJ/exec')) {
+      if (!validateEditableFields()) {
+        return;
+      }
+
+      if (GOOGLE_APPS_SCRIPT_URL.startsWith('PEGA_AQUI')) {
         alert('Configura primero la URL de Google Apps Script en el código del contrato.');
         return;
       }
 
       saveContractButton.disabled = true;
-      saveContractButton.textContent = 'Generando PDF...';
+      saveContractButton.textContent = 'Preparando contrato...';
 
       try {
-        const pdfDataUri = await html2pdf()
-          .set({
-            margin: 10,
-            filename: `Contrato-${gNameInput.value || 'huesped'}.pdf`,
-            image: { type: 'jpeg', quality: 0.98 },
-            html2canvas: { scale: 2, useCORS: true },
-            jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-          })
-          .from(document.querySelector('.contract-box'))
-          .outputPdf('datauristring');
-
         const payload = {
           fileName: `Contrato-${gNameInput.value || 'huesped'}.pdf`,
-          pdfBase64: pdfDataUri.split(',')[1]
+          guest: {
+            name: gNameInput.value,
+            nationality: gNatInput.value,
+            dni: gDniInput.value,
+            address: document.getElementById('g_address').value,
+            email: gEmailInput.value,
+            phone: gPhoneInput.value
+          },
+          contract: {
+            day: document.getElementById('contract_day').value,
+            month: document.getElementById('contract_month').value,
+            year: document.getElementById('contract_year').value,
+            startDate: document.getElementById('contract_start_date').value,
+            endDate: document.getElementById('contract_end_date').value,
+            rentWords: document.getElementById('rent_words').value,
+            rentAmount: document.getElementById('rent_amount').value,
+            paymentDay: document.getElementById('payment_day').value,
+            depositWords: document.getElementById('deposit_words').value,
+            depositAmount: document.getElementById('deposit_amount').value
+          }
         };
 
         saveContractButton.textContent = 'Guardando...';
@@ -366,13 +402,13 @@
           body: JSON.stringify(payload)
         });
 
-        alert('Contrato enviado a Google Drive.');
+        alert('Datos Enviados');
       } catch (error) {
         console.error(error);
         alert('No se pudo guardar el contrato. Revisa la configuración de Google Apps Script.');
       } finally {
         saveContractButton.disabled = false;
-        saveContractButton.textContent = 'Guardar Contrato';
+        saveContractButton.textContent = 'Enviar Datos';
       }
     }
 
