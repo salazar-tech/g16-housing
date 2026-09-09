@@ -22,11 +22,11 @@ function doPost(e) {
     }
 
     const folder = DriveApp.getFolderById(DRIVE_FOLDER_ID);
-    const fileName = sanitizeFileName(data.fileName || 'contrato-hospedaje');
+    const fileName = generateFileName(data);
     
     const copiedFile = DriveApp
       .getFileById(TEMPLATE_DOCUMENT_ID)
-      .makeCopy(fileName.replace(/\.pdf$/i, ''), folder);
+      .makeCopy(fileName, folder);
       
     const document = DocumentApp.openById(copiedFile.getId());
     const values = buildTemplateValues(data);
@@ -55,6 +55,36 @@ function doGet() {
     ok: true,
     message: 'Google Apps Script activo.'
   });
+}
+
+function generateFileName(data) {
+  const guestName = (data.guest && data.guest.name) ? data.guest.name : 'guest';
+  const formattedDate = getFormattedDate(data);
+  const rawFileName = `G16Housing - ${formattedDate} - ${guestName}`;
+
+  return sanitizeFileName(rawFileName);
+}
+
+function getFormattedDate(data) {
+  const contract = data.contract || {};
+  
+  // Parse contract.startDate (expected format: DD/MM/YYYY or DD-MM-YYYY)
+  if (contract.startDate) {
+    const parts = contract.startDate.split(/[\/\.-]/);
+    if (parts.length === 3) {
+      const dd = parts[0].padStart(2, '0');
+      const mm = parts[1].padStart(2, '0');
+      const yy = parts[2].slice(-2);
+      return `${mm}${dd}${yy}`;
+    }
+  }
+
+  // Fallback to today's date if contract.startDate is missing or malformed
+  const today = new Date();
+  const mm = String(today.getMonth() + 1).padStart(2, '0');
+  const dd = String(today.getDate()).padStart(2, '0');
+  const yy = String(today.getFullYear()).slice(-2);
+  return `${mm}${dd}${yy}`;
 }
 
 function buildTemplateValues(data) {
@@ -103,75 +133,4 @@ function jsonResponse(data) {
   return ContentService
     .createTextOutput(JSON.stringify(data))
     .setMimeType(ContentService.MimeType.JSON);
-}
-
-function testDoPost() {
-  const mockEvent = {
-    postData: {
-      contents: JSON.stringify({
-        fileName: 'contrato-test',
-        guest: {
-          name: 'Juan Pérez',
-          nationality: 'Peruana',
-          dni: '12345678',
-          address: 'Av. Principal 123',
-          email: 'juan@example.com',
-          phone: '987654321'
-        },
-        contract: {
-          day: '05',
-          month: 'Septiembre',
-          year: '2026',
-          startDate: '05/09/2026',
-          endDate: '05/09/2027',
-          rentWords: 'Un mil soles',
-          rentAmount: '1000',
-          paymentDay: '05',
-          depositWords: 'Un mil soles',
-          depositAmount: '1000'
-        }
-      })
-    }
-  };
-
-  const response = doPost(mockEvent);
-  Logger.log(response.getContent());
-}
-
-function updateTemplateToCamelCase() {
-  const doc = DocumentApp.openById(TEMPLATE_DOCUMENT_ID);
-  const body = doc.getBody();
-
-  const replacements = {
-    '{{DATE_DAY}}': '{{dateDay}}',
-    '{{DATE_MONTH}}': '{{dateMonth}}',
-    '{{DATE_YEAR}}': '{{dateYear}}',
-    '{{LANLORD_NAME}}': '{{landlordName}}',
-    '{{LANDLORD_NAME}}': '{{landlordName}}',
-    '{{LANDLORD_NATIONALITY}}': '{{landlordNationality}}',
-    '{{LANDLORD_DNI}}': '{{landlordDni}}',
-    '{{LANDLORD_ADDRESS}}': '{{landlordAddress}}',
-    '{{LANDLORD_EMAIL}}': '{{landlordEmail}}',
-    '{{LANDLORD_PHONE}}': '{{landlordPhone}}',
-    '{{GUEST_NAME}}': '{{guestName}}',
-    '{{GUEST_NATIONALITY}}': '{{guestNationality}}',
-    '{{GUEST_DNI}}': '{{guestDni}}',
-    '{{GUEST_ADDRESS}}': '{{guestAddress}}',
-    '{{GUEST_EMAIL}}': '{{guestEmail}}',
-    '{{GUEST_PHONE}}': '{{guestPhone}}',
-    '{{START_DATE}}': '{{startDate}}',
-    '{{END_DATE}}': '{{endDate}}',
-    '{{RENT_WORDS}}': '{{rentWords}}',
-    '{{RENT_AMOUNT}}': '{{rentAmount}}',
-    '{{PAYMENT_DAY}}': '{{paymentDay}}',
-    '{{DEPOSIT_WORDS}}': '{{depositWords}}',
-    '{{DEPOSIT_AMOUNT}}': '{{depositAmount}}'
-  };
-
-  Object.keys(replacements).forEach(function(oldToken) {
-    body.replaceText(oldToken.replace(/[{}]/g, '\\$&'), replacements[oldToken]);
-  });
-
-  doc.saveAndClose();
-  Logger.log('Template document updated successfully to camelCase!');
 }
